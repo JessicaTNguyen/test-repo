@@ -1,0 +1,23 @@
+<nav>
+    <ul>
+        <li><button>Ability</button></li>
+        <li><button>Moves</button></li>
+        <li><button>Forms</button></li>
+    </ul>
+</nav>
+
+<br><br>
+
+<div *ngIf="searchService.submitted">
+    {{getInfo('Ability')}}
+    <div [ngSwitch]="pokeTab[0]">
+        <div *ngSwitchCase="pokeTabs[0]">
+            <p *ngFor="let s of abilityArr">
+                {{s[0].name}} 
+                {{s[1].desc}}
+            </p>
+        </div>
+        <p *ngSwitchCase="pokeTabs[1]">{{moves}}</p>
+        <p *ngSwitchCase="pokeTabs[2]">{{forms}}</p>
+    </div>
+</div>
